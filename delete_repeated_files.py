@@ -16,6 +16,7 @@ for root, dirs, files in os.walk(path):
 
         if len(file_ls_keep) == 0:
             file_ls_keep.append(cur_path)
+            print("Keep file: " + cur_path)
             continue
 
         for file_keep in file_ls_keep:
@@ -25,18 +26,15 @@ for root, dirs, files in os.walk(path):
 
             if file_keep == file_ls_keep[-1]:
                 file_ls_keep.append(cur_path)
+                print("Keep file: " + cur_path)
                 break
 
 # 输出重复文件列表，确认是否删除
-print("keep_list")
-for f in file_ls_keep:
-    print(f)
-
-print("repeated_list")
+print("\nrepeated_list")
 for f in file_ls_rept:
     print(f)
 
-option = input("Delete all repeated files?[Y/N]") 
+option = input("\nDelete all repeated files?[Y/N]") 
 
 # 若选择删除则删掉重复文件列表中的所有文件
 if option == "Y":
@@ -46,4 +44,4 @@ if option == "Y":
 else:
     print("All file keep.")
 
-print("completed.")
+input("\ncompleted.")
